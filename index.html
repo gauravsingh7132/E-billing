@@ -34,9 +34,7 @@
     <button onclick="savePDF()">Save as PDF</button>
 
     <!-- WHATSAPP -->
-    <button id="whatsappShareBtn" class="whatsapp-btn" disabled>
-      Share on WhatsApp
-    </button>
+    
   </div>
 
   <!-- INVOICE -->
@@ -102,44 +100,7 @@
 <!-- EXISTING SCRIPT -->
 <script src="script.js"></script>
 
-<!-- NEW LOGIC -->
-<script>
-  // Enable WhatsApp button AFTER invoice generation
-  const originalGenerate = generate;
-  generate = function () {
-    originalGenerate();
-    const btn = document.getElementById("whatsappShareBtn");
-    btn.disabled = false;
-    btn.style.opacity = "1";
-    btn.style.cursor = "pointer";
-  };
-
-  // WhatsApp Share Logic
-  document.getElementById("whatsappShareBtn").addEventListener("click", async function () {
-
-    // 1. Auto download PDF
-    await savePDF();
-
-    // 2. Prepare message
-    const invoiceNumber =
-      document.getElementById("invoiceNo")?.value || "Invoice";
-
-    const totalAmount =
-      document.getElementById("grandTotal")?.innerText || "0";
-
-    const message = `Hello,
-Please find the invoice attached.
-
-Invoice No: ${invoiceNumber}
-Amount: ₹${totalAmount}
-
-Generated via Gauravion Invoice`;
-
-    // 3. Open WhatsApp
-    const whatsappURL = "https://wa.me/?text=" + encodeURIComponent(message);
-    window.open(whatsappURL, "_blank");
-  });
-</script>
 
 </body>
 </html>
+
