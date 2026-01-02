@@ -358,4 +358,38 @@ td {
   );
   border-radius: 2px;
 }
+/* =====================
+   DATE INPUT FIX
+===================== */
+input[type="date"] {
+  color: #f8fafc;               /* White text */
+  background-color: #020617;    /* Dark bg */
+}
+
+/* Placeholder-like text (Chrome) */
+input[type="date"]::-webkit-datetime-edit {
+  color: #f8fafc;
+}
+
+/* Day / Month / Year parts */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #f8fafc;
+}
+
+/* Calendar icon (Chrome / Edge) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);            /* Makes icon white */
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Focus glow */
+input[type="date"]:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
+}
+
 
