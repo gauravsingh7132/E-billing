@@ -1,119 +1,157 @@
+/* =====================
+   PLATFORM (DARK THEME)
+===================== */
 body {
-  background: #e5e7eb;
-  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #e5e7eb;
 }
 
+/* =====================
+   MAIN LAYOUT
+===================== */
 .wrapper {
   width: 1150px;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
   gap: 30px;
 }
 
+/* =====================
+   FORM PANEL
+===================== */
 .form {
   width: 35%;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(30,41,59,0.96),
+    rgba(15,23,42,0.96)
+  );
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
 }
 
 .form h2 {
-  color: #0f172a;
+  color: #f8fafc;
 }
 
-.form input {
+.form input,
+.form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 12px 14px;
   margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
 }
 
 .form button {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  background: #0f172a;
-  color: white;
-  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #020617;
+  transition: 0.25s;
 }
 
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(34,211,238,0.35);
+}
+
+/* =====================
+   INVOICE (WHITE – PRINT SAFE)
+===================== */
 .invoice {
   width: 65%;
-  background: white;
+  background: #ffffff;
+  color: #0f172a;
   padding: 35px;
-  border-radius: 16px;
+  border-radius: 18px;
   position: relative;
-} 
-
-.invoice-box {
-  position: relative;
-  background-color: #ffffff;
-
-  /* ✅ PROFESSIONAL WATERMARK */
-  background-image: repeating-linear-gradient(
-    -30deg,
-    rgba(15, 23, 42, 0.10),
-    rgba(15, 23, 42, 0.10) 2px,
-    transparent 2px,
-    transparent 140px
-  );
-
-  background-size: 450px 450px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  overflow: hidden;
 }
 
+/* =====================
+   WATERMARK (FIXED)
+===================== */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
 
+.watermark img {
+  width: 260px;
+  max-width: 260px;
+}
+
+/* =====================
+   HEADER
+===================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 4px solid #0f172a;
+  border-bottom: 3px solid #0f172a;
   padding-bottom: 15px;
-}
-
-.header h1 {
-  margin: 0;
-  color: #0f172a;
-}
-
-.tagline {
-  font-size: 13px;
-  color: #475569;
+  position: relative;
+  z-index: 1;
 }
 
 .invoice-title {
   font-size: 26px;
-  font-weight: bold;
-  color: #0f172a;
+  font-weight: 700;
 }
 
+/* =====================
+   META
+===================== */
 .meta {
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  margin: 22px 0;
+  font-size: 14px;
 }
 
+/* =====================
+   TABLE
+===================== */
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
 }
 
 th {
   background: #0f172a;
-  color: white;
+  color: #ffffff;
   padding: 12px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 td {
   padding: 14px;
   border: 1px solid #cbd5e1;
-  font-size: 15px;
 }
 
 .amount-col {
@@ -121,14 +159,31 @@ td {
   text-align: right;
 }
 
+/* =====================
+   TOTAL
+===================== */
 .total {
-  margin-top: 25px;
+  margin-top: 24px;
   text-align: right;
   font-size: 20px;
   font-weight: bold;
-  color: #0f172a;
 }
 
+/* =====================
+   QR
+===================== */
+.qr-code {
+  margin-top: 22px;
+  text-align: right;
+}
+
+.qr-code img {
+  width: 190px;
+}
+
+/* =====================
+   NOTE
+===================== */
 .note {
   margin-top: 30px;
   font-size: 13px;
@@ -136,88 +191,9 @@ td {
   text-align: center;
 }
 
- /* Watermark container */
-.watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-20deg);
-  z-index: 0;
-  pointer-events: none;
-  width: 100%;
-  text-align: center;
-}
-
-/* Watermark image */
-.watermark img {
-  width: 320px;     /* CONTROL SIZE HERE */
-  max-width: 70%;
-  opacity: 0.07;    /* FAINT PROFESSIONAL LOOK */
-}
- 
-
-
-
-/* ✅ PRINT PERFECT */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  .invoice, .invoice * {
-    visibility: visible;
-  }
-  .invoice {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-} 
-/* @media print {
-  body {
-    width: 210mm;    A4 width 
-    height: 297mm;   A4 height 
-    margin: 10mm;   adjust as needed
-      box-sizing: border-box;
-  }
-
-  .invoice-container {
-    width: 100%;
-    height: auto;
-    page-break-inside: avoid;  prevent cutting in middle 
-  }
-} */
-
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  resize: none;
-}
-
-.item-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.item-row input {
-  flex: 1;
-}
-
-.qr-code {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.qr-code img {
-  width: 200px;
-  height: 260px;
-}
-
-
+/* =====================
+   PRINT PERFECT (A4)
+===================== */
 @media print {
 
   @page {
@@ -226,26 +202,33 @@ textarea {
   }
 
   body {
-    margin: 0;
-    padding: 0;
+    background: white;
   }
 
-  .wrapper {
-    width: 100%;
+  body * {
+    visibility: hidden;
+  }
+
+  .invoice,
+  .invoice * {
+    visibility: visible;
   }
 
   .invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     padding: 25px;
-    box-sizing: border-box;
+    box-shadow: none;
+    border-radius: 0;
   }
 
-  .invoice-title {
-    white-space: nowrap;
+  .watermark {
+    opacity: 0.04;
+  }
+
+  .watermark img {
+    width: 240px;
   }
 }
-
-
-
-
-
