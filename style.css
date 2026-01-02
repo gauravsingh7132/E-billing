@@ -18,101 +18,36 @@ body {
 }
 
 /* =====================
-   FORM PANEL (DARK GLASS)
+   FORM PANEL
 ===================== */
 .form {
   width: 35%;
-  background: linear-gradient(
-    180deg,
-    rgba(30,41,59,0.95),
-    rgba(15,23,42,0.95)
-  );
-  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(30,41,59,0.95), rgba(15,23,42,0.95));
   padding: 26px;
   border-radius: 18px;
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-.form h2 {
-  color: #f8fafc;
-  letter-spacing: 0.5px;
-}
-
-.form h3 {
-  margin-top: 22px;
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-/* =====================
-   INPUTS
-===================== */
-.form input,
-.form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #334155;
-  background: #020617;
-  color: #e5e7eb;
-  transition: all 0.25s ease;
-}
-
-.form input::placeholder,
-.form textarea::placeholder {
-  color: #64748b;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
-}
+.form h2 { color: #f8fafc; }
 
 /* =====================
    BUTTONS
 ===================== */
-.form button {
+button {
   width: 100%;
-  padding: 13px;
-  margin-top: 10px;
+  padding: 14px;
   border-radius: 12px;
   border: none;
-  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   background: linear-gradient(135deg, #6366f1, #22d3ee);
-  color: #020617;
-  transition: all 0.25s ease;
 }
 
-.form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(34,211,238,0.35);
-}
-
-.form button:active {
-  transform: translateY(0);
-}
-
-/* WhatsApp Accent */
 .whatsapp-btn {
-  background: linear-gradient(135deg, #16a34a, #22c55e) !important;
-  color: #022c22 !important;
-}
-
-.whatsapp-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  box-shadow: none;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
 }
 
 /* =====================
-   INVOICE (KEEP WHITE)
+   INVOICE (PRINT AREA)
 ===================== */
 .invoice {
   width: 65%;
@@ -129,19 +64,18 @@ body {
 ===================== */
 .watermark {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-18deg);
-  z-index: 0;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
-  width: 100%;
-  text-align: center;
 }
 
-.watermark img {
-  width: 320px;
-  max-width: 70%;
+.watermark span {
+  font-size: 60px;
+  font-weight: 700;
   opacity: 0.06;
+  transform: rotate(-18deg);
 }
 
 /* =====================
@@ -150,27 +84,12 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border-bottom: 4px solid #0f172a;
-  padding-bottom: 16px;
-  position: relative;
-  z-index: 1;
+  padding-bottom: 14px;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 26px;
-}
-
-.tagline {
-  font-size: 13px;
-  color: #475569;
-}
-
-.invoice-title {
-  font-size: 28px;
-  font-weight: 700;
-}
+.header h1 { margin: 0; }
+.invoice-title { font-size: 28px; }
 
 /* =====================
    META
@@ -178,7 +97,7 @@ body {
 .meta {
   display: flex;
   justify-content: space-between;
-  margin: 26px 0;
+  margin: 24px 0;
   font-size: 14px;
 }
 
@@ -188,30 +107,30 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
 }
 
 th {
   background: #0f172a;
   color: white;
   padding: 12px;
-  font-size: 14px;
 }
 
 td {
-  padding: 14px;
+  padding: 12px;
   border: 1px solid #cbd5e1;
 }
 
 .amount-col {
-  width: 200px;
   text-align: right;
+  white-space: nowrap;
 }
 
 /* =====================
    TOTAL
 ===================== */
 .total {
-  margin-top: 28px;
+  margin-top: 24px;
   text-align: right;
   font-size: 22px;
   font-weight: bold;
@@ -221,36 +140,38 @@ td {
    QR
 ===================== */
 .qr-code {
-  margin-top: 24px;
+  margin-top: 20px;
   text-align: right;
 }
 
 .qr-code img {
-  width: 190px;
+  width: 160px;
 }
 
 /* =====================
    NOTE
 ===================== */
 .note {
-  margin-top: 32px;
+  margin-top: 30px;
   font-size: 13px;
-  color: #475569;
   text-align: center;
+  color: #475569;
 }
 
 /* =====================
-   ITEMS
-===================== */
-.item-row {
-  display: flex;
-  gap: 10px;
-}
-
-/* =====================
-   PRINT (PERFECT)
+   PRINT FIX (FINAL)
 ===================== */
 @media print {
+
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    background: white;
+  }
+
   body * {
     visibility: hidden;
   }
@@ -261,10 +182,10 @@ td {
   }
 
   .invoice {
-    position: absolute;
-    inset: 0;
+    position: relative;
     width: 100%;
-    padding: 25px;
+    padding: 20px;
+    box-sizing: border-box;
     box-shadow: none;
   }
 }
