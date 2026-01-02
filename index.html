@@ -102,8 +102,33 @@
 </div>
 
 <script src="script.js"></script>
+  <script>
+document.getElementById("whatsappShareBtn").addEventListener("click", function () {
+
+  const invoiceNumber =
+    document.querySelector('input[placeholder="Invoice Number"]')?.value || "Invoice";
+
+  const totalAmount =
+    document.querySelector(".grand-total")?.innerText || "";
+
+  const message = `Hello,
+Please find the invoice details below.
+
+Invoice: ${invoiceNumber}
+Amount: ${totalAmount}
+
+Generated via Gauravion Invoice`;
+
+  const whatsappURL =
+    "https://wa.me/?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+});
+</script>
+
 </body>
 </html>
+
 
 
 
