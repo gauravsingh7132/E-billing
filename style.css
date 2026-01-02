@@ -1,10 +1,10 @@
 /* =====================
-   GLOBAL THEME
+   PLATFORM THEME (DARK)
 ===================== */
 body {
-  background: radial-gradient(circle at top left, #eef2ff, #e5e7eb);
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #0f172a;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #e5e7eb;
 }
 
 /* =====================
@@ -15,61 +15,62 @@ body {
   margin: 40px auto;
   display: flex;
   gap: 30px;
-  animation: pageFade 0.6s ease;
-}
-
-@keyframes pageFade {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* =====================
-   FORM PANEL
+   FORM PANEL (DARK GLASS)
 ===================== */
 .form {
   width: 35%;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  background: linear-gradient(
+    180deg,
+    rgba(30,41,59,0.95),
+    rgba(15,23,42,0.95)
+  );
+  backdrop-filter: blur(12px);
   padding: 26px;
   border-radius: 18px;
   box-shadow:
-    0 20px 40px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.8);
-  transition: transform 0.3s ease;
-}
-
-.form:hover {
-  transform: translateY(-2px);
+    0 30px 80px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .form h2 {
-  margin-bottom: 10px;
-  font-size: 22px;
-  letter-spacing: 0.3px;
+  color: #f8fafc;
+  letter-spacing: 0.5px;
 }
 
 .form h3 {
-  margin-top: 20px;
-  font-size: 15px;
-  color: #334155;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #94a3b8;
 }
 
+/* =====================
+   INPUTS
+===================== */
 .form input,
 .form textarea {
   width: 100%;
   padding: 12px 14px;
   margin: 10px 0;
   border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background: #f9fafb;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
   transition: all 0.25s ease;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #64748b;
 }
 
 .form input:focus,
 .form textarea:focus {
   outline: none;
-  background: #ffffff;
   border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
 }
 
 /* =====================
@@ -84,48 +85,43 @@ body {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #020617;
   transition: all 0.25s ease;
 }
 
 .form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(15,23,42,0.25);
+  box-shadow: 0 14px 35px rgba(34,211,238,0.35);
 }
 
 .form button:active {
   transform: translateY(0);
 }
 
-/* WhatsApp premium accent */
+/* WhatsApp Accent */
 .whatsapp-btn {
   background: linear-gradient(135deg, #16a34a, #22c55e) !important;
+  color: #022c22 !important;
 }
 
 .whatsapp-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
 }
 
 /* =====================
-   INVOICE PANEL
+   INVOICE (KEEP WHITE)
 ===================== */
 .invoice {
   width: 65%;
   background: #ffffff;
+  color: #0f172a;
   padding: 38px;
   border-radius: 20px;
   position: relative;
-  box-shadow:
-    0 25px 60px rgba(0,0,0,0.12);
-  animation: invoicePop 0.5s ease;
-}
-
-@keyframes invoicePop {
-  from { opacity: 0; transform: scale(0.98); }
-  to   { opacity: 1; transform: scale(1); }
+  box-shadow: 0 35px 90px rgba(0,0,0,0.45);
 }
 
 /* =====================
@@ -164,7 +160,6 @@ body {
 .header h1 {
   margin: 0;
   font-size: 26px;
-  letter-spacing: 0.4px;
 }
 
 .tagline {
@@ -175,11 +170,10 @@ body {
 .invoice-title {
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 
 /* =====================
-   META INFO
+   META
 ===================== */
 .meta {
   display: flex;
@@ -194,22 +188,18 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
 }
 
 th {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #ffffff;
+  background: #0f172a;
+  color: white;
   padding: 12px;
   font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
 td {
   padding: 14px;
   border: 1px solid #cbd5e1;
-  font-size: 15px;
 }
 
 .amount-col {
@@ -224,8 +214,7 @@ td {
   margin-top: 28px;
   text-align: right;
   font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: bold;
 }
 
 /* =====================
@@ -238,18 +227,16 @@ td {
 
 .qr-code img {
   width: 190px;
-  height: auto;
 }
 
 /* =====================
-   FOOTER NOTE
+   NOTE
 ===================== */
 .note {
   margin-top: 32px;
   font-size: 13px;
   color: #475569;
   text-align: center;
-  line-height: 1.6;
 }
 
 /* =====================
@@ -258,24 +245,18 @@ td {
 .item-row {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
 }
 
 /* =====================
-   PRINT
+   PRINT (PERFECT)
 ===================== */
 @media print {
-
-  @page {
-    size: A4;
-    margin: 15mm;
-  }
-
   body * {
     visibility: hidden;
   }
 
-  .invoice, .invoice * {
+  .invoice,
+  .invoice * {
     visibility: visible;
   }
 
