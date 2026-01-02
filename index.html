@@ -22,7 +22,6 @@
 
     <!-- ITEMS -->
     <h3>Invoice Items</h3>
-
     <div id="items"></div>
 
     <button type="button" onclick="addItem()">+ Add Item</button>
@@ -33,29 +32,28 @@
 
     <button onclick="generate()">Generate Invoice</button>
     <button onclick="savePDF()">Save as PDF</button>
-    <button id="whatsappShareBtn" class="whatsapp-btn">
-  Share on WhatsApp
-</button>
 
+    <!-- WHATSAPP -->
+    <button id="whatsappShareBtn" class="whatsapp-btn" disabled>
+      Share on WhatsApp
+    </button>
   </div>
 
   <!-- INVOICE -->
   <div class="invoice" id="invoice">
 
-   <div class="watermark">
-  <img src="/Stamp.jpeg" alt="Watermark">
-</div>
-
+    <div class="watermark">
+      <img src="/Stamp.jpeg" alt="Watermark">
+    </div>
 
     <div class="header">
       <div>
         <h1>Gauravion Private Limited</h1>
         <p class="tagline">Digital Solutions & Services</p>
         <p class="address">
-          33,Gulshan Vihar,Sidheshwar Road,<br>
-          Murari Nagar Khurja,Bulandshahr,<br>
-           Uttar Pradesh – 203131 India<br>
-        
+          33, Gulshan Vihar, Sidheshwar Road,<br>
+          Murari Nagar Khurja, Bulandshahr,<br>
+          Uttar Pradesh – 203131 India
         </p>
       </div>
       <div class="invoice-title">INVOICE</div>
@@ -64,8 +62,8 @@
     <div class="meta">
       <div>
         <p><b>Bill To</b></p>
-        <p id="clName"> Name —</p>
-        <p id="clAddr"> Address —</p>
+        <p id="clName">Name —</p>
+        <p id="clAddr">Address —</p>
       </div>
       <div>
         <p><b>Invoice No</b>: <span id="invNo">—</span></p>
@@ -94,43 +92,54 @@
     </div>
 
     <div class="note">
-      Thank you for choosing Guaravion Private Limited 🙏<br>
+      Thank you for choosing Gauravion Private Limited 🙏<br>
       Made with ❤️ by a special developer
     </div>
 
   </div>
 </div>
 
+<!-- EXISTING SCRIPT -->
 <script src="script.js"></script>
-  <script>
-document.getElementById("whatsappShareBtn").addEventListener("click", function () {
 
-  const invoiceNumber =
-    document.querySelector('input[placeholder="Invoice Number"]')?.value || "Invoice";
+<!-- NEW LOGIC -->
+<script>
+  // Enable WhatsApp button AFTER invoice generation
+  const originalGenerate = generate;
+  generate = function () {
+    originalGenerate();
+    const btn = document.getElementById("whatsappShareBtn");
+    btn.disabled = false;
+    btn.style.opacity = "1";
+    btn.style.cursor = "pointer";
+  };
 
-  const totalAmount =
-    document.querySelector(".grand-total")?.innerText || "";
+  // WhatsApp Share Logic
+  document.getElementById("whatsappShareBtn").addEventListener("click", async function () {
 
-  const message = `Hello,
-Please find the invoice details below.
+    // 1. Auto download PDF
+    await savePDF();
 
-Invoice: ${invoiceNumber}
-Amount: ${totalAmount}
+    // 2. Prepare message
+    const invoiceNumber =
+      document.getElementById("invoiceNo")?.value || "Invoice";
+
+    const totalAmount =
+      document.getElementById("grandTotal")?.innerText || "0";
+
+    const message = `Hello,
+Please find the invoice attached.
+
+Invoice No: ${invoiceNumber}
+Amount: ₹${totalAmount}
 
 Generated via Gauravion Invoice`;
 
-  const whatsappURL =
-    "https://wa.me/?text=" + encodeURIComponent(message);
-
-  window.open(whatsappURL, "_blank");
-});
+    // 3. Open WhatsApp
+    const whatsappURL = "https://wa.me/?text=" + encodeURIComponent(message);
+    window.open(whatsappURL, "_blank");
+  });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
