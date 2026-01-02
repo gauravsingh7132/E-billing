@@ -232,3 +232,130 @@ td {
     width: 240px;
   }
 }
+/* =====================
+   PLATFORM ACCENT COLORS
+===================== */
+:root {
+  --blue-main: #1e3a8a;   /* Dark Blue */
+  --blue-glow: #2563eb;
+  --red-main: #dc2626;    /* Red Accent */
+  --red-glow: #ef4444;
+}
+
+/* =====================
+   FORM PANEL GLOW
+===================== */
+.form {
+  border: 1px solid rgba(37,99,235,0.25);
+  position: relative;
+}
+
+.form::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(220,38,38,0.35),
+    rgba(37,99,235,0.35),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.form:hover::before {
+  opacity: 1;
+}
+
+/* =====================
+   INPUT HOVER EFFECT
+===================== */
+.form input:hover,
+.form textarea:hover {
+  border-color: var(--red-main);
+}
+
+/* =====================
+   PRIMARY BUTTON (BLUE → RED)
+===================== */
+.form button {
+  background: linear-gradient(
+    135deg,
+    var(--blue-main),
+    var(--red-main)
+  );
+  color: #ffffff;
+}
+
+.form button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--red-main),
+    var(--blue-main)
+  );
+  box-shadow:
+    0 0 0 1px rgba(220,38,38,0.4),
+    0 18px 45px rgba(220,38,38,0.45);
+}
+
+/* =====================
+   SECONDARY / ACTION BUTTON
+===================== */
+.form button.secondary {
+  background: linear-gradient(
+    135deg,
+    #020617,
+    var(--blue-main)
+  );
+  border: 1px solid rgba(37,99,235,0.5);
+}
+
+.form button.secondary:hover {
+  background: linear-gradient(
+    135deg,
+    var(--blue-main),
+    var(--red-main)
+  );
+}
+
+/* =====================
+   WHATSAPP BUTTON (RED TOUCH)
+===================== */
+.whatsapp-btn {
+  background: linear-gradient(
+    135deg,
+    #16a34a,
+    var(--red-main)
+  ) !important;
+  color: white !important;
+}
+
+.whatsapp-btn:hover {
+  box-shadow: 0 15px 40px rgba(239,68,68,0.45);
+}
+
+/* =====================
+   SUBTLE SECTION HOVER
+===================== */
+.form h2 {
+  position: relative;
+}
+
+.form h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--blue-main),
+    var(--red-main)
+  );
+  border-radius: 2px;
+}
+
