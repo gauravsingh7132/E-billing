@@ -195,89 +195,45 @@ td {
 /* =====================
    PRINT PERFECT (A4)
 ===================== */
-/* =====================
-   PRINT – FINAL & STABLE (ALL BROWSERS)
-===================== */
 @media print {
 
-  /* A4 PAGE CONTROL */
   @page {
     size: A4;
-    margin: 16mm;
+    margin: 12mm;
   }
 
-  /* RESET SCREEN STYLES */
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    background: #ffffff !important;
-    overflow: visible !important;
+  body {
+    background: white;
   }
 
-  /* HIDE EVERYTHING */
   body * {
-    visibility: hidden !important;
+    visibility: hidden;
   }
 
-  /* SHOW ONLY INVOICE */
   .invoice,
   .invoice * {
-    visibility: visible !important;
+    visibility: visible;
   }
 
-  /* INVOICE LAYOUT FIX */
   .invoice {
-    position: static !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-
-    height: auto !important;
-    min-height: auto !important;
-
-    margin: 0 auto !important;
-    padding: 0 !important;
-
-    background: #ffffff !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-
-    transform: none !important;
-    zoom: 1 !important;
-
-    page-break-inside: avoid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+     max-width: 100%
+    padding: 20px;
+    box-shadow: none;
+    border-radius: 0;
   }
 
-  /* TABLE SAFETY */
-  table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-  }
-
-  tr {
-    page-break-inside: avoid;
-  }
-
-  /* WATERMARK – SAFE */
   .watermark {
-    position: absolute !important;
-    top: 55% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) rotate(-18deg) !important;
-    opacity: 0.05 !important;
-    pointer-events: none !important;
+    opacity: 0.04;
   }
 
-  /* FONT SCALE LOCK */
-  body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+  .watermark img {
+    width: 240px;
   }
 }
-
 /* =====================
    PLATFORM ACCENT COLORS
 ===================== */
@@ -438,14 +394,6 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
-
-
-
-
-
-
-
-
 
 
 
