@@ -155,9 +155,10 @@ td {
 }
 
 .amount-col {
-  width: 200px;
+  min-width: 160px;
   text-align: right;
 }
+
 
 /* =====================
    TOTAL
@@ -198,7 +199,7 @@ td {
 
   @page {
     size: A4;
-    margin: 15mm;
+    margin: 12mm;
   }
 
   body {
@@ -215,11 +216,11 @@ td {
   }
 
   .invoice {
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
-    width: 100%; 
-    padding: 10mm;
+    width: 100%;
+    padding: 20px;
     box-shadow: none;
     border-radius: 0;
   }
@@ -392,13 +393,6 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
-
-
-
-bhai yeh  hai puura code
-
-
-
 
 
 
