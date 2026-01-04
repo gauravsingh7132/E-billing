@@ -195,15 +195,18 @@ td {
 /* =====================
    PRINT PERFECT (A4)
 ===================== */
+/* =====================
+   PRINT – FINAL & STABLE (ALL BROWSERS)
+===================== */
 @media print {
 
-  /* 1️⃣ REAL PAPER CONTROL */
+  /* A4 PAGE CONTROL */
   @page {
     size: A4;
-    margin: 16mm;   /* 👈 equal left & right space */
+    margin: 16mm;
   }
 
-  /* 2️⃣ RESET SCREEN EFFECTS */
+  /* RESET SCREEN STYLES */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -212,55 +215,19 @@ td {
     background: #ffffff !important;
     overflow: visible !important;
   }
-   @media print {
 
-  /* Firefox fix (shrink bug) */
-  @-moz-document url-prefix() {
-    .invoice {
-      width: 100% !important;
-    }
-  }
-
-  /* Safari / iOS fix */
-  @supports (-webkit-touch-callout: none) {
-    .invoice {
-      width: 100% !important;
-      margin: 0 !important;
-    }
-  }
-
-  /* Mobile browsers (Android / iOS) */
-  @media (max-width: 768px) {
-    @page {
-      margin: 14mm;
-    }
-
-    .invoice {
-      padding: 0 !important;
-    }
-  }
-}
-
-
-  /* 3️⃣ HIDE UI / DARK THEME */
+  /* HIDE EVERYTHING */
   body * {
     visibility: hidden !important;
   }
 
-  /* 4️⃣ SHOW ONLY INVOICE */
-  .invoice
-   {
-    min-height: auto !important;
-    height: auto !important;
-    page-break-after: auto;
-  }
-
-
+  /* SHOW ONLY INVOICE */
+  .invoice,
   .invoice * {
     visibility: visible !important;
   }
 
-  /* 5️⃣ INVOICE = FULL PAGE, NO SHRINK */
+  /* INVOICE LAYOUT FIX */
   .invoice {
     position: static !important;
 
@@ -268,41 +235,48 @@ td {
     max-width: 100% !important;
     min-width: 0 !important;
 
+    height: auto !important;
+    min-height: auto !important;
+
     margin: 0 auto !important;
     padding: 0 !important;
 
+    background: #ffffff !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-    background: white !important;
 
     transform: none !important;
     zoom: 1 !important;
+
+    page-break-inside: avoid;
   }
 
-  /* 6️⃣ FONT SIZE LOCK (NO AUTO SCALE) */
-  body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  /* 7️⃣ TABLE SAFETY (NO CUT) */
+  /* TABLE SAFETY */
   table {
     width: 100% !important;
-    page-break-inside: auto;
-    border-collapse: collapse;
+    border-collapse: collapse !important;
   }
 
   tr {
     page-break-inside: avoid;
-    page-break-after: auto;
   }
 
-  /* 8️⃣ WATERMARK SAFE */
+  /* WATERMARK – SAFE */
   .watermark {
-    opacity: 0.05;
+    position: absolute !important;
+    top: 55% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) rotate(-18deg) !important;
+    opacity: 0.05 !important;
+    pointer-events: none !important;
+  }
+
+  /* FONT SCALE LOCK */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
-
 
 /* =====================
    PLATFORM ACCENT COLORS
@@ -464,6 +438,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
