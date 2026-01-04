@@ -215,12 +215,11 @@ td {
   }
 
   .invoice {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
-     right: 0;
     width: 100%;
-    padding: 25px;
+    padding: 25mm;
     box-shadow: none;
     border-radius: 0;
   }
@@ -397,4 +396,5 @@ input[type="date"]:focus {
 
 
 bhai yeh  hai puura code
+
 
