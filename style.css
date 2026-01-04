@@ -219,8 +219,7 @@ td {
     left: 0;
     top: 0;
     width: 100%;
-      max-width: 180mm;
-      margin: 0 auto;
+    
     padding: 15mm;
     box-shadow: none;
     border-radius: 0;
@@ -398,6 +397,7 @@ input[type="date"]:focus {
 
 
 bhai yeh  hai puura code
+
 
 
 
