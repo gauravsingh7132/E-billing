@@ -199,7 +199,14 @@ td {
 
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 0;          /* browser margins hatao */
+  }
+
+  html, body {
+    width: 210mm;       /* full A4 size */
+    height: 297mm;
+    margin: 0;
+    padding: 0;
   }
 
   body {
@@ -216,14 +223,14 @@ td {
   }
 
   .invoice {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: auto;
-     max-width: 100%
-    padding: 20px;
+    position: absolute;   
     box-shadow: none;
     border-radius: 0;
+    width: 100%;          /* full page width */
+    max-width: 100%;
+    height: 100%;         /* optional: full height */
+    padding: 15mm;        /* andar ka margin */
+    box-sizing: border-box;
   }
 
   .watermark {
@@ -394,6 +401,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
