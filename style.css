@@ -248,7 +248,14 @@ td {
   }
 
   /* 4️⃣ SHOW ONLY INVOICE */
-  .invoice,
+  .invoice
+   {
+    min-height: auto !important;
+    height: auto !important;
+    page-break-after: auto;
+  }
+
+
   .invoice * {
     visibility: visible !important;
   }
@@ -457,6 +464,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
