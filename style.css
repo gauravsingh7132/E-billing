@@ -203,7 +203,12 @@ td {
   }
 
   body {
+    margin: 0;
+    padding: 0;
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   body * {
@@ -216,12 +221,11 @@ td {
   }
 
   .invoice {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: auto;
-     max-width: 100%
-    padding: 20px;
+    position: relative;        /* 🔥 absolute hata diya */
+    width: 100%;
+    max-width: 210mm;          /* 🔥 A4 width */
+    margin: 0 auto;            /* 🔥 center */
+    padding: 20mm;
     box-shadow: none;
     border-radius: 0;
   }
@@ -234,6 +238,7 @@ td {
     width: 240px;
   }
 }
+
 /* =====================
    PLATFORM ACCENT COLORS
 ===================== */
@@ -394,6 +399,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
