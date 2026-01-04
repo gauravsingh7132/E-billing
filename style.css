@@ -212,6 +212,35 @@ td {
     background: #ffffff !important;
     overflow: visible !important;
   }
+   @media print {
+
+  /* Firefox fix (shrink bug) */
+  @-moz-document url-prefix() {
+    .invoice {
+      width: 100% !important;
+    }
+  }
+
+  /* Safari / iOS fix */
+  @supports (-webkit-touch-callout: none) {
+    .invoice {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  }
+
+  /* Mobile browsers (Android / iOS) */
+  @media (max-width: 768px) {
+    @page {
+      margin: 14mm;
+    }
+
+    .invoice {
+      padding: 0 !important;
+    }
+  }
+}
+
 
   /* 3️⃣ HIDE UI / DARK THEME */
   body * {
@@ -428,6 +457,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
