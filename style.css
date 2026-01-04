@@ -281,7 +281,7 @@ td {
 
   @page {
     size: A4;
-    margin: 15mm;
+    margin: 12mm;
   }
 
   body {
@@ -300,9 +300,8 @@ td {
   .invoice {
     position: relative;
     width: 100%;
-    max-width: 180mm;
-    margin: 0 auto;
-    padding: 15mm;
+    margin: 0;
+    padding: 35px;        /* ✅ original padding wapas */
     box-shadow: none;
     border-radius: 0;
     overflow: hidden;
@@ -319,7 +318,7 @@ td {
   }
 
   .amount-col {
-    width: 45mm;
+    width: 200px;        /* ✅ original width */
     text-align: right;
   }
 
@@ -328,9 +327,10 @@ td {
   }
 
   .watermark img {
-    width: 220px;
+    width: 240px;
   }
 }
+
 
 /* =====================
    PLATFORM ACCENT COLORS
@@ -372,3 +372,4 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
