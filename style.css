@@ -199,16 +199,13 @@ td {
 
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 0;
   }
 
   body {
     margin: 0;
     padding: 0;
     background: white;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
   }
 
   body * {
@@ -221,13 +218,14 @@ td {
   }
 
   .invoice {
-    position: relative;        /* 🔥 absolute hata diya */
-    width: 100%;
-    max-width: 210mm;          /* 🔥 A4 width */
-    margin: 0 auto;            /* 🔥 center */
-    padding: 20mm;
+    position: relative;
+    width: 100vw;              /* 🔥 FULL PAGE WIDTH */
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 24px;
     box-shadow: none;
     border-radius: 0;
+    box-sizing: border-box;
   }
 
   .watermark {
@@ -238,6 +236,7 @@ td {
     width: 240px;
   }
 }
+
 
 /* =====================
    PLATFORM ACCENT COLORS
@@ -399,6 +398,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
