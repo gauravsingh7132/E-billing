@@ -170,13 +170,11 @@ td {
 
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 15mm;
   }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: white !important;
+  body {
+    background: white;
   }
 
   body * {
@@ -189,20 +187,13 @@ td {
   }
 
   .invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    max-width: 185mm;   /* ✅ KEY FIX */
-    margin: 0 auto;
-    padding: 20mm;
-    box-shadow: none !important;
+    padding: 25px;
+    box-shadow: none;
     border-radius: 0;
-  }
-
-  table {
-    table-layout: fixed;
-  }
-
-  th, td {
-    word-break: break-word;
   }
 
   .watermark {
@@ -213,7 +204,6 @@ td {
     width: 240px;
   }
 }
-
 /* =====================
    ACCENT COLORS
 ===================== */
@@ -221,3 +211,4 @@ td {
   --blue-main: #1e3a8a;
   --red-main: #dc2626;
 }
+
