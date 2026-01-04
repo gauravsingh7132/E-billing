@@ -219,7 +219,8 @@ td {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    width: auto;
+     max-width: 100%
     padding: 20px;
     box-shadow: none;
     border-radius: 0;
@@ -393,6 +394,7 @@ input[type="date"]:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
+
 
 
 
