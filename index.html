@@ -26,20 +26,22 @@
 
     <button type="button" onclick="addItem()">+ Add Item</button>
 
+    <!-- GST -->
+    <h3>GST</h3>
+    <input id="gstPercent" type="number" placeholder="GST % (e.g. 18)">
+
     <!-- QR -->
     <h3>QR Code</h3>
     <input type="file" accept="image/*" onchange="loadQR(event)">
 
     <button onclick="generate()">Generate Invoice</button>
     <button onclick="savePDF()">Save as PDF</button>
-    <button class="btn personalized-btn"
-        type="button"
-        onclick="window.location.href='https://www.gauravion.com/tools-contact-form/';">
-  Get Your Personalized E-Billing
-</button>
 
-    <!-- WHATSAPP -->
-    
+    <button class="btn personalized-btn"
+      type="button"
+      onclick="window.location.href='https://www.gauravion.com/tools-contact-form/';">
+      Get Your Personalized E-Billing
+    </button>
   </div>
 
   <!-- INVOICE -->
@@ -119,13 +121,6 @@
   </div>
 </div>
 
-<!-- EXISTING SCRIPT -->
 <script src="script.js"></script>
-
-
 </body>
 </html>
-
-
-
-
