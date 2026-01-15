@@ -402,6 +402,38 @@ input[type="date"]:focus {
   box-shadow: 0 0 0 3px rgba(220,38,38,0.25);
 }
 
+* =====================
+   TOTAL BOX – PROFESSIONAL LOOK
+===================== */
+.total-box {
+  margin-top: 30px;
+  margin-left: auto;
+  width: 320px;
+  font-size: 15px;
+}
+
+.total-box .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.total-box .row span:last-child {
+  min-width: 120px;
+  text-align: right;
+}
+
+.total-box .divider {
+  border-top: 2px solid #0f172a;
+  margin: 10px 0;
+}
+
+.total-box .grand {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
 
 
 
