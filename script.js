@@ -29,7 +29,7 @@ function generate() {
     date.value;
 
   invoiceBody.innerHTML = "";
-  let total = 0;
+  let subTotal = 0;
 
   document.querySelectorAll(".item-row").forEach(row => {
     let inputs = row.querySelectorAll("input");
@@ -38,7 +38,7 @@ function generate() {
     let rate = Number(inputs[2].value);
     let rowTotal = qty * rate;
 
-    total += rowTotal;
+    subTotal += rowTotal;
 
     let tr = document.createElement("tr");
     tr.innerHTML = `
@@ -50,7 +50,24 @@ function generate() {
     invoiceBody.appendChild(tr);
   });
 
-  document.getElementById("grandTotal").innerText = total;
+  let gstPercent = Number(document.getElementById("gstPercent").value);
+  let gstRow = document.getElementById("gstRow");
+
+  let gstAmount = 0;
+
+  if (gstPercent > 0) {
+    gstAmount = (subTotal * gstPercent) / 100;
+    gstRow.style.display = "flex";
+    document.getElementById("gstShow").innerText = gstPercent;
+    document.getElementById("gstAmount").innerText = gstAmount.toFixed(2);
+  } else {
+    gstRow.style.display = "none";
+  }
+
+  let grandTotal = subTotal + gstAmount;
+
+  document.getElementById("subTotal").innerText = subTotal.toFixed(2);
+  document.getElementById("grandTotal").innerText = grandTotal.toFixed(2);
 }
 
 function savePDF() {
@@ -62,3 +79,4 @@ function loadQR(event) {
   img.src = URL.createObjectURL(event.target.files[0]);
   img.style.display = "block";
 }
+
