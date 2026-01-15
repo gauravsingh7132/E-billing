@@ -86,9 +86,26 @@
       <tbody id="invoiceBody"></tbody>
     </table>
 
-    <div class="total">
-      GRAND TOTAL : ₹ <span id="grandTotal">0</span>
-    </div>
+    <!-- TOTAL WITH GST -->
+    <div class="total-box">
+  <div class="row">
+    <span>Sub Total</span>
+    <span>₹ <b id="subTotal">0</b></span>
+  </div>
+
+  <div class="row gst-row" id="gstRow">
+    <span>GST (<span id="gstShow">0</span>%)</span>
+    <span>₹ <b id="gstAmount">0</b></span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="row grand">
+    <span>Grand Total</span>
+    <span>₹ <b id="grandTotal">0</b></span>
+  </div>
+</div>
+
 
     <div class="qr-code">
       <img id="qr" src="" alt="">
@@ -108,6 +125,7 @@
 
 </body>
 </html>
+
 
 
 
