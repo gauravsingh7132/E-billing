@@ -80,3 +80,4 @@ function loadQR(event) {
   img.style.display = "block";
 }
 
+
